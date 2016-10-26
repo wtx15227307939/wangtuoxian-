@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="zfModule">
+<head >
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div ng-controller="myCtrl">
+    <ul>
+        <li ng-repeat="val in datas track by $index">
+            {{val}}
+        </li>
+    </ul>
+</div>
+<script src="node_modules/angular/angular.js"></script>
+<script>
+    var app=angular.module('zfModule',[]);
+    app.controller('myCtrl',['$scope',function($scope){
+       /* $scope.datas=['苹果','香蕉','橘子','苹果','香蕉','橘子'];*/
+        $scope.datas=[
+            {name:'iphone',type:['i7','i8']},
+            {name:'xm',type:['m1','m2']},
+            {name:'hw',type:['p9','p8']}
+        ];
+        /*for(var value in $scope.datas){
+            console.log()
+        }*/
+        //要遍历谁就要把当前遍历的内容写在当前标签上
+    }])
+</script>
+</body>
+</html>

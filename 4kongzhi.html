@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="zfModule">
+<head >
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body ng-controller="myCtrl">
+{{name}}
+{{arr}}
+{{obj}}
+{{fn()}}
+<div ng-click="fn()">hell0</div>
+<script src="node_modules/angular/angular.js"></script>
+<script>
+    var app=angular.module('zfModule',[]);
+    app.run(function($rootScope){
+        $rootScope.name='zfpx1';
+    });
+    fn=function(){
+        alert('1')
+    }
+    app.controller('myCtrl',function($scope){
+        $scope.name='zfpx'
+    });
+    app.controller('myCtrl',["$scope",function(a,b){
+        a.name='zfpx';
+        a.arr=[1,2,3,4];
+        a.obj={chinese:'语文'};
+        a.fn=function(){
+            return '中国'
+        }
+    }])
+</script>
+</body>
+</html>

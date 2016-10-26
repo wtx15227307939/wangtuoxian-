@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="zfModule">
+<head >
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div ng-controller="firstCtrl">{{name}}</div>
+<div ng-controller="secondCtrl">{{name}}</div>
+<script src="node_modules/angular/angular.js"></script>
+<script>
+    var obj={/*命名空间*/
+        a:function(){},
+        b:function(){},
+        c:function(){}
+    }
+</script>
+<!--
+不要污染全局变量 最常用命名空间 调用过长 无法完全避免命名冲突
+
+模块化  一切从模块开始
+创建模块  模块的名字 依赖的模块jwModeule
+fn配置函数
+-->
+<!--创建模块-->
+<script>
+    var app=angular.module('zfModule',[]);
+//    alert(app=angular.module('zfModule',[]))
+    //通过模块来创建控制器 创建控制器后送一个$scope 是我们的 viewModel
+    app.run(function($rootScope){
+        $rootScope.name='zfpx'
+    })
+ app.controller('firstCtrl',function($scope){
+     $scope.name='zf';
+     $scope.age=8;
+ });
+    app.controller('secondCtrl',function($scope){
+        $scope.name='xxx';
+        $scope.age=30;
+    });
+    //创建控制器时 会赠送一个$scope 作用范围和应用时应用时所在的标签范围相同 (和dom齐平)
+    //数据挂载在$scope 作用范围和应用时所在的标签范围
+    //3 控制器里不要操作dom 在link函数中
+    //4 控制器可以嵌套 子控制器可以找父控制器 父不可以找子
+</script>
+</body>
+</html>

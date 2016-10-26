@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head >
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--基础的 api 常用的指令 ng-app ng-model 购物车
+自定义属性 给标签赋予一些意义 封装插件
+服务 自定义服务
+filter 过滤器
+http 获取数据 书店 +node
+考试 路由
+
+双向绑定的原理 依赖注入
+-->
+<input type="text" ng-model="name"/>
+<!--<div ng-bind="name"></div>-->
+<!--ng - bind 绑定一个变量 防止闪烁 不能绑定多个 标签内不能写任何内容-->
+<!--ng - bind - template 可以绑定多个 绑定的是字符串
+标签里不能绑定内容
+-->
+<!--<div ng-bind-template="{{name}}"></div>-->
+
+<!--ng-cloak 防止闪烁 需要给带有ng-cloak的所有标签 display none-->
+<div ng-cloak>
+    {{name}}
+</div>
+<style>
+    [ng-clock]{display: none}
+</style>
+<!--{{name}}-->
+<!--{{3+2+1}}-->
+<!--{{true?'0':'1'}}-->
+<!--{{1++1}}-->
+</body>
+</html>
+<script src="node_modules/angular/angular.js"></script>
